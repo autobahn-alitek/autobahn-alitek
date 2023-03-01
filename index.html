@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+
+
+///***************************************************************
+function handleFlowResults(){
+    $("#EmailDiv").hide();
+    $("#MfrDiv").show();
+}
+////********************************************************
+function callSendEmailFlow(userEmail) {
+          //build the flow input as a JS object
+          var flowInputJSON = {
+            "email": email,
+            "customerID" : parseInt(custID),
+            "customerName" : customerName,
+            "mfrId" : parseInt(mfrID),
+            "mfrName" : mfr
+            }
+
+          $.ajax({
+            url: sendEmailFlowUrl,
+            type: "post",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              var status = data.Status;
+              console.log(data);
+              if(status.toUpperCase() != "DONE"){
+                alert("send email flow failed");
+              }
+            }, //end of callback function
+            data: JSON.stringify(flowInputJSON),
+          });
+        }
+///**********************************************************
+
+function callEmailVerifyFlow(userEmail) {
+          //build the flow input as a JS object
+          var flowInputJSON = {
+            email: $("#userEmail").val()
+          }
+          console.log("email is " + email);
+          $.ajax({
+            url: emailFlowURL,
+            type: "post",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              // this is the function that will be called with the results from the post ( i.e the flow)
+              console.log("Results");
+              console.log("----------");
+              custID = data.CustomerID;
+              customerName = data.CustomerName;
+
+              console.log("CustomerName : " + customerName);
+              //console.log("CustomerID :" + data.CustomerID);
+              console.log("CustomerID :" + custID);
+
+              //extract the manufactur value into a variable
+              let mfrArray = data.Manufacturers;
+
+              console.log(mfrArray);
+
+              //convert the manufacturer string value to an array
+              let array = JSON.parse(mfrArray);
+
+              console.log("Number of mfrs: " + array.length);
+
+              //clear any options that may currently be in the select
+              $("#theSelect").empty();
+
+              for (var i = 0; i < array.length; i++) {
+                mfr = array[i]["manufacturer"];
+                mfrID = array[i]["mfrid"];
+                console.log("manufacturerName : " + mfr + " mfrID: " + mfrID);
+
+                //now add this manufacturer as an option to the select
+                $("#theSelect").append(
+                  '<option value="' + mfrID + '">' + mfr + "</option>"
+                );
+              }
+              handleFlowResults();
+            }, //end of callback function
+            data: JSON.stringify(flowInputJSON),
+          });
+        }
+///***************************************************************
+      let custID = "";
+      let customerName = "";
+      let mfr = "";
+      let mfrID = "";
+        var email = "";
+        let emailFlowURL =
+          "https://prod-114.westus.logic.azure.com:443/workflows/1b6c9b2efa4c46758ea9af8acc2a1a8f/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zC9UAi72ODYV7sVIPOz9TrAnKkGrvALUYLDWUVLt5d4";
+
+        let sendEmailFlowUrl = "https://prod-164.westus.logic.azure.com:443/workflows/2847c5874b054d1f96a12fe1b18f9f08/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=g-Zccb7Fd5wk7XhdLhDiuVv7nsSHLdVg_MnBDh3pRO0";
+          
+    function emailClicked(){
+        email = $("#userEmail").val();
+        //make sure a email was given
+        $("#emailError").val("");
+        if($("#userEmail").val().length == 0){
+          $("#emailError").val("Email address required");
+          return;
+        }
+
+        //email = $("#userEmail").val();
+        console.log("just set email to "+ $("#userEmail").val()
+        
+        
+        )
+        callEmailVerifyFlow($("#userEmail").val());
+        
+        
+        
+
+    }//close emailClicked function
+    function mfrClicked(){
+        $("#mfrError").val("");
+        callSendEmailFlow(email);
+    }//close emailClicked function
+
+    $(document).ready(function(){
+        $("#emailButton").click(function(){
+            emailClicked();
+        })
+
+        $("#mfrButton").click(function(){
+           
+            mfrClicked();
+        })
+
+    });</script>
+</head>
+<body>
+    <div class="containerDiv">
+
+        <div id="EmailDiv" class="contentDiv">
+            <Span class="spanTag"> Email </Span>
+            <input type="text" id="userEmail" >
+            <br><br>
+            <button id="emailButton">Submit </button>
+            <br><br>
+            <textarea id="emailError" rows="3" readonly></textarea>
+        </div>
+
+        <div id="MfrDiv" style="display: none" class="contentDiv">
+            <span>Which manufactuer are you providing credentials for?</span>
+            <br><br>
+            <select  id="theSelect">
+
+            </select>
+            <br><br>
+            <button id="mfrButton">Submit </button>
+            <br><br>
+            <textarea id="mfrError" rows="3" readonly></textarea>
+        </div>
+    </div>
+    
+</body>
+</html>

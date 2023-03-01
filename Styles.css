@@ -1,0 +1,51 @@
+/*#EmailDiv{
+    height: 600px;
+    width: 75%;
+    text-align: center;
+    border: solid 8px rebeccapurple;
+    position: relative;
+    margin: auto;
+    
+    
+    
+
+}
+
+#MfrDiv{
+    height: 600px;
+    width: 75%;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    border: solid 8px rebeccapurple;
+
+}*/
+
+.containerDiv {
+    background: white;
+    height: 400px;
+    width: 600px;
+    position: relative;
+    margin: auto;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 20%;
+    box-shadow: 8px 4px 5px 0px rgba(0, 0, 0, 0.38);
+    margin-top: 40px;
+    padding-top: 50px;
+  }
+
+  .contentDiv {
+    background: white;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin: -200px 0 0 -200px;
+    border-width: 1px;
+    border-style: none;
+    border-color: lightgray;
+  }
+  
+  
