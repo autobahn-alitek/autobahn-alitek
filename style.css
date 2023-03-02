@@ -15,17 +15,38 @@
 .contentDiv {
   background: white;
   width: 400px;
-  height: 300px;
+  height: 200px;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   margin: -200px 0 0 -200px;
   border-width: 1px;
   border-style: none;
   border-color: lightgray;
+  align-items: center;
 }
 
-#creds-prompt {
+#message-div {
+  xbackground-color: white;
+  width: 100%;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  margin: -200px 0 0 -300px;
+}
+
+#message-area {
+  width: 80%;
+  color: black;
+  font-weight: bold;
+  border-style: none;
+  border-color: white;
+  border-width: 0px;
+  resize: none;
+  text-align: center;
+}
+
+.aPrompt {
   font-size: 16px;
   font-weight: bold;
   color: navy;
@@ -38,6 +59,11 @@
 
 .fieldLabel {
   float: right;
+  font-weight: bold;
+}
+
+.aLabel {
+  color: black;
   font-weight: bold;
 }
 
@@ -61,4 +87,22 @@
 
 #bad-link {
   display: none;
+}
+
+.ui-widget-header,
+.ui-state-default,
+ui-button {
+  background: crimson;
+  border: 2px solid brown;
+  color: white;
+  font-weight: bold;
+}
+
+.ui-button,
+ui-widget,
+ui-state-default,
+ui-corner-all,
+ui-button-icon-only,
+ui-dialog-titlebar-close {
+  background-color: green;
 }
