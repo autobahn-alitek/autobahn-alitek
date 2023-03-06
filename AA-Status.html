@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ag-Grid Basic Example</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.1.0/styles/ag-grid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.1.0/styles/ag-theme-alpine.css"
+    />
+
+    <script src="aa-status.js"></script>
+    <link rel="stylesheet" href="status-style.css" />
+  </head>
+  <body>
+    <center>
+      <div id="grid-frame" hidden>
+        <img
+          src="./icons/customers/AutobahnFW.png"
+          alt="refresh"
+          id="cust-logo"
+        />
+        <div id="header-bar">
+          <center><span id="headerText">Invoice Approval Queues</span></center>
+          <img
+            src="./icons/toolbar/refresh-icon-36.png"
+            id="refresh-image"
+            title="Refresh Status Data"
+          />
+        </div>
+        <div id="myGrid" style="width: 100%" class="ag-theme-alpine"></div>
+        <span id="tStamp" class="ts-field">Status data as of xxx </span>
+      </div>
+    </center>
+
+    <center>
+      <div id="prompt-div">Loading Status Data, please wait...</div>
+    </center>
+  </body>
+</html>
