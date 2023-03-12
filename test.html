@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script src="./js/cookie.js"></script>
+<script>
+$(document).ready(function(){
+ checkAuthentication();
+var email = getCookie("AA-Email");
+if( email == "NOT FOUND")
+{
+    email = "";
+}
+alert("my email is : " + email );
+$("#message-div").text("my email is : " + email);
+$("#del-cookie").click(function() {
+ 
+    deleteCookie("AA-Email");
+})
+});
+</script>
+</head>
+<body>
+  <button id="del-cookie">Delete Cookie</button>
+  <BR><BR>
+testPage
+<BR><BR>
+<div id="message-div"></div>
+</body>
+</html>

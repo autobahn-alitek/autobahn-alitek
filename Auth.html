@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/Auth.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="./js/Auth.js"></script>
+    <script src="./js/cookie.js"></script>
+</head>
+<body>
+    <div id="header-bar">
+        <img id="aa-logo" src="./icons/AlitekAuto/alitekAuto-logo.jpg" />
+        <span id="headerText"></span>
+       
+      </div>
+      <div id="bottom-band"></div>
+    <div class="containerDiv">
+        <div id="EmailDiv" class="contentDiv">
+          <center>
+            <span id="email-prompt">Please enter your email address</span> <br><br>
+            <span class="spanTag">Email:</span> 
+            <input type="text" id="userEmail">
+            <br><br>
+            <button id="emailButton">Submit</button>
+            <br><br>
+            <textarea  id="emailError" class="aTextArea" rows="3" cols="50" readonly></textarea>
+            </center>
+        </div>
+    </div>
+    
+        <div id="thePopup" title="Validation Code">
+            <span>Please enter your code below</span>
+            <input type="text" id="codeInput">
+        </div>
+    
+</body>
+</html>

@@ -1,3 +1,4 @@
+let theEmail = "";
 /************  Declare the fields for the grid  ******************/
 const statusColDefs = [
   {
@@ -122,13 +123,15 @@ const gridOptions = {
 //************************************ End of the grid content Setup **********************************************/
 
 function getStatusData() {
-  let d = { customerID: 2 };
+ 
+  let d = { email: theEmail };
   let dST = JSON.stringify(d);
+  console.log(dST);
   //get the current time in locale timezone
   let ts = new Date().toLocaleString().toString();
   $("#tStamp").text("Status data as of " + ts);
   arrayURL =
-    "https://prod-29.westus.logic.azure.com:443/workflows/da6e56d37c1141c0bf4704df294ecd2c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5vLGweujzE4virmPoGfF0BwA9N5td24zSDTV9pvEGAg";
+    "https://prod-11.westus.logic.azure.com:443/workflows/97a6e5703a0a44ed886e75cea71e2940/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FxVzfz0doogYTLt3zLZQdVe_U4u1Wb8QJa8nbF8RxXw";
   $.ajax({
     url: arrayURL,
     type: "POST",
@@ -177,6 +180,10 @@ const gridOptions = {
 /*        JQuery Ready F(x)                        */
 /***************************************************/
 $(function () {
+
+  checkAuthentication();
+  theEmail = getCookie("AA-Email");
+  
   /******  Declare the AG Grid ***********/
   const gridDiv = document.querySelector("#myGrid");
   new agGrid.Grid(gridDiv, gridOptions);

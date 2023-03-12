@@ -1,0 +1,9 @@
+#logout-link{
+    color:white;
+    position:absolute;
+    right:80px;
+    padding-right:20px;
+    top:15px;
+    text-decoration: none;
+    font-size: 12px;
+  }

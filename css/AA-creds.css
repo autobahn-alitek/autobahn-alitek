@@ -89,20 +89,9 @@
   display: none;
 }
 
-.ui-widget-header,
-.ui-state-default,
-ui-button {
-  background: crimson;
-  border: 2px solid brown;
+.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix.ui-draggable-handle {
+  background: Green;
+  border: 2px solid black brown;
   color: white;
   font-weight: bold;
-}
-
-.ui-button,
-ui-widget,
-ui-state-default,
-ui-corner-all,
-ui-button-icon-only,
-ui-dialog-titlebar-close {
-  background-color: green;
 }

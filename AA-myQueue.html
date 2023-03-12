@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/utility.js"></script>
+    <title>Ag-Grid Basic Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.1.0/styles/ag-grid.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.1.0/styles/ag-theme-alpine.css"
+    />
+
+    <script src="./js/AA-myQueue.js"></script>
+    <link rel="stylesheet" href="./css/AA-myQueue.css" />
+    <link rel="stylesheet" href="./css/spinner.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/utility.css" />
+  </head>
+  <body>
+    <div id="header-bar">
+      <img id="aa-logo" src="./icons/AlitekAuto/alitekAuto-logo.jpg" />
+      <span id="headerText">My Invoice Approval Queue</span>
+
+      <a id="logout-link" href="#" onclick="deleteAllCookies()">Logout</a>
+
+      <a href="./index.html">
+        <img src="./icons/AlitekAuto/home-36.png"/ id="home-icon" />
+      </a>
+      <img
+        src="./refresh-icon-36.png"
+        id="refresh-image"
+        title="Refresh Status Data"
+      />
+    </div>
+    <div id="bottom-band"></div>
+    <center>
+      <div id="grid-frame" hidden>
+        <center>
+          <img
+            src="./icons/customers/AutobahnFW.png"
+            alt="refresh"
+            id="cust-logo"
+          />
+        </center>
+        <div id="myGrid" style="width: 100%" class="ag-theme-alpine"></div>
+        <span id="tStamp" class="ts-field">Status data as of xxx </span>
+      </div>
+    </center>
+
+    <center>
+      <div id="prompt-div">
+        <span id="wait-prompt">Retrieving your invoices, please wait...</span>
+        <br /><br />
+        <div id="spinner" class="spinner"></div>
+      </div>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/utility.js"></script>
+    <link rel="stylesheet" href="./css/AA-creds.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/utility.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+<script src="./js/AA-Creds.js"></script>
+
+
+
+<script>
+  function delAllCookies()
+  {
+    deleteCookie("AA-Email");
+   deleteCookie("AA-isCredAdmin");
+   deleteCookie("AA-credAdminMfrID");
+   deleteCookie("AA-credAdminMfrName");
+   deleteCookie("AA-custID");
+   deleteCookie("AA-custName");
+   deleteCookie("isReviewer");
+   document.location.href = "./index.html";
+  }
+</script>
+      
+  </head>
+  <body>
+    <div id="header-bar">
+
+      <img id="aa-logo" src="./icons/AlitekAuto/alitekAuto-logo.jpg" />
+
+      <span id="headerText">Manufacturer Site Credentials</span>
+
+     <a id="logout-link" href="#" onclick="deleteAllCookies()">Logout</a>
+
+      <a href="./index.html">
+      <img  src="./icons/AlitekAuto/home-36.png"/ id="home-icon" />
+    </a>
+
+     
+    </div>
+    <div id="bottom-band"></div>
+
+
+    <div class="containerDiv">
+      <div id="EmailDiv" class="contentDiv">
+        <Center>
+        <span class="aPrompt"> Please enter your email address </span><br /><br />
+        <span class="spanTag aLabel"> Email: </span>
+        <input type="text" id="userEmail" />
+        <br /><br />
+        <button id="emailButton">Submit</button>
+        <br /><br />
+      </Center>
+      </div>
+
+      <div id="MfrDiv" style="display: none" class="contentDiv">
+        <Center>
+        <span class="aPrompt">Which manufactuer are you providing credentials for?</span>
+        <br /><br />
+        <select id="theSelect"></select>
+        <br /><br />
+        <button id="mfrButton">Submit</button>
+        <br /><br />
+      </Center>
+      </div>
+      <div id="creds-div" class="contentDiv" >
+        <center>
+           <span id="creds-prompt" class="displayField aPrompt" ></span>
+           <br><br>
+           <table id="spacing-table">
+            <tr>
+               <td><span class="fieldLabel"  >Username:</span></td>
+               <td><input type="Text" id="username-field" class="displayField aLabel" ></text></td>
+            </tr>
+            <tr>
+              <td><span class="fieldLabel"  >Password:</span></td>
+              <td><input type="password" id="password-field" class="displayField aLabel" ></input></td>
+            </tr>
+            <tr>
+              <td> <span class="fieldLabel" >Verify Password:</span></td>
+              <td><input type="password" id="verify-field" class="displayField aLabel" ></input></td>
+            </tr>
+            
+           </table>
+           <br><br>
+           <button id="submit-button" class="displayField" >Submit</button>
+         
+          </center>
+          </div>
+      <div id="creds-final" class="contentDiv">
+        Your credentials have been saved
+      </div>
+      <div id="bad-link" class="contentDiv">
+        This link is either invalid or expired.
+      </div>
+     <Center>
+    <div id="validate-div"></div>
+     <div id="message-div">
+        <textarea id="message-area" class="aTextArea" rows="3" readonly> </textarea>
+      </div>
+
+      <div id="dialg" title="Verification">Please enter the code from the verification E-Mail
+        <br><br>
+           <center><input id="code-field" type="text"> </input></center>
+        </div>  
+    </Center>
+    </div>
+  </body>
+</html>
