@@ -359,7 +359,20 @@
           $("#mfrButton").prop("disabled", false);
         }
         
+    
+         $('#togglePassword1').click(function() {
+           var password1 = $("#password-field");
+           const type = password1.attr("type") === 'password' ? 'text' : 'password';
+           password1.attr('type',type);
+           $("#togglePassword1").toggleClass('fa-eye fa-eye-slash');
+        });
 
+        $('#togglePassword2').click(function() {
+          var password2 = $("#verify-field");
+          const type = password2.attr("type") === 'password' ? 'text' : 'password';
+          password2.attr('type',type);
+          $("#togglePassword2").toggleClass('fa-eye fa-eye-slash');
+       });
 
        $("body").css({"font-family": "Arial, Helvetica, sans-serif"});
 
@@ -397,7 +410,7 @@
         //show the email div
         showMfrDiv();
     
-
+      
       
 
         $("#emailButton").click(function () {
