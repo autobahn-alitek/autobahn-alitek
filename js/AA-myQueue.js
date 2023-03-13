@@ -6,12 +6,30 @@ const statusColDefs = [
     filter: "agTextColumnFilter",
     sortable: true,
     minWidth: 300,
+    cellRenderer: (params) => {
+      var link = params.data.ReviewLink;
+      if( link  == null)
+      {
+        return params.value;
+
+      } 
+      else
+      {
+         return '<a href="' + link + '" target="_new" >' + params.value + '</a>'
+      }
+
+    }
   },
+
   {
     field: "Mfr Name",
     filter: "agTextColumnFilter",
     sortable: true,
     cellRenderer: (params) => {
+      
+      console.log("row:" + params.rowIndex);
+      console.log("review link : " + params.data.ReviewLink);
+      console.log(params);
       this.eGui = document.createElement("span");
       var img = "";
       switch (params.value) {
@@ -44,6 +62,7 @@ const statusColDefs = [
     field: "Stage",
     filter: "agTextColumnFilter",
     sortable: true,
+   
     cellRenderer: (params) => {
       this.eGui = document.createElement("span");
       var img = "";
@@ -102,8 +121,14 @@ const statusColDefs = [
     filter: "agTextColumnFilter",
     sortable: true,
     minWidth: 300,
+    
   },
   { field: "Submitted Date", filter: "agDateColumnFilter", sortable: true },
+  {
+    field: "Review Link",
+    filter: "agTextColumnFilter",
+    hide:true
+  }
 ];
 
 /********** initially the grid row data is empty. we will fill from a flow in the ready event ***********/
@@ -126,7 +151,7 @@ function getStatusData() {
  
   let d = { email: theEmail };
   let dST = JSON.stringify(d);
-  console.log(dST);
+  //console.log(dST);
   //get the current time in locale timezone
   let ts = new Date().toLocaleString().toString();
   $("#tStamp").text("Status data as of " + ts);
@@ -141,7 +166,7 @@ function getStatusData() {
     success: function (json) {
       //alert("got back");
 
-      console.log(json.data);
+      //console.log(json.data);
       //-------------------------------------------------------------------
       gridOptions.api.setRowData(json.data);
 
