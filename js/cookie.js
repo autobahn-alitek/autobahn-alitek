@@ -47,7 +47,7 @@ function checkAuthentication()
     if( res == "NOT FOUND")
     {
          /* not authenticated so redirect to Authentication page */
-         window.location.href = 'http://awatchappserver.southcentralus.cloudapp.azure.com/auth.html';
+         window.location.href = './auth.html';
          
     }
     else
