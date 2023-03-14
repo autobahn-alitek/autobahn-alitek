@@ -46,9 +46,9 @@ function checkAuthentication()
     let res = getCookie("AA-Email");
     if( res == "NOT FOUND")
     {
-
+      
          /* not authenticated so redirect to Authentication page */
-         window.location.href = './Auth.html';
+         window.location.href = './auth.html';
          
     }
     else

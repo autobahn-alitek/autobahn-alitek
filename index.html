@@ -22,11 +22,22 @@
     <link rel="stylesheet" href="./css/spinner.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/utility.css" />
+    <link rel="stylesheet" href="./css/index.css" />
 
     <script>
         $(document).ready(function() {
            //alert("in ready");
            checkAuthentication();
+            
+           $("#certs-panel").click(function () {
+                window.location.href = "./AA-Creds.html";
+           });
+          
+           $("#myQueue-panel").click(function () {
+                window.location.href = "./AA-myQueue.html";
+           });
+
+
            $("#outer-div").show();
         });
     </script>
@@ -35,21 +46,45 @@
     <div id="outer-div" style="display:none">
     <div id="header-bar">
       <img id="aa-logo" src="./icons/AlitekAuto/alitekAuto-logo.jpg" />
-      <span id="headerText"></span>
+      <span id="headerText">Please select an option</span>
       <a id="logout-link" href="#" onclick="deleteAllCookies()">Logout</a>
     
     </div>
     <div id="bottom-band"></div>
 
-    <div id="content-div>
-       <div id="creds-link-div">
-         <a href="./AA-Creds.html">Update Invoice Site Credentials</a>
-       </div>
-
-       <div id="myQueue-link-div">
-        <a href="./AA-myQueue.html">My Invoice Review Queue</a>
-       </div>
-    </div>
-  </div>
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Blank HTML5</title>
+    <style>
+    </style>
+        </head>
+        <body>
+    
+         
+    
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    
+    });
+    </script>
+    <center>
+      <br><br><br>
+          <div id="container" class="float-container"> 
+          <div id="myQueue-panel" class="float-child">
+            <br>
+      
+            <span id="link1" class="selection-Panel">My <br> Review<br> Queue</span>
+          </div>
+          <div id="certs-panel" class="selection-Panel">
+            <br>
+            <span id="link2" class="selection-Panel">Set <br> Site<br>Credentials</span>
+          </div>
+          </div>
+    </center>
+        </body>
+    </html>
   </body>
 </html>
