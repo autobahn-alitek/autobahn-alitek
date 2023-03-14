@@ -48,7 +48,7 @@ function checkAuthentication()
     {
       
          /* not authenticated so redirect to Authentication page */
-         window.location.href = './auth.html';
+         window.location.href = './Auth.html';
          
     }
     else
